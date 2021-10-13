@@ -54,7 +54,7 @@ class UnorderedList:
             current = current.next
         return count
 
-    def serach(self, item):
+    def search(self, item):
         current = self.head
         while current is not None:
             if current.data == item:
