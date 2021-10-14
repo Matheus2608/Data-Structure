@@ -51,14 +51,6 @@ class OrderedList:
             temp.next = current
             previous.next = temp
 
-    def size(self):
-        current = self.head
-        count = 0
-        while current is not None:
-            count += 1
-            current = current.next
-        return count
-
     def search(self, item):
         current = self.head
         while current is not None:
