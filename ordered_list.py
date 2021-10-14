@@ -84,11 +84,48 @@ class OrderedList:
         else:
             previous.next = current.next
 
-    def append(self, item):
-        temp = Node(item)
-        if self.head == None:
-            self.head = temp
-            self.last = self.head
-        else:
-            self.last.set_next(temp)
-            self.last = temp
+    def get_element(self, position):
+        i = 0
+        current = self.head
+        while current is not None:
+            if i == position:
+                return current.data
+            current = current.next
+            i += 1
+        return None
+
+    def reverse(l):
+        if l.head is None:
+            return
+
+        current_node = l.head
+        prev_node = None
+
+        while current_node is not None:
+            # Track the next node
+            next_node = current_node.next
+
+            # Modify the current node
+            current_node.next = prev_node
+
+            # Update prev and current
+            prev_node = current_node
+            current_node = next_node
+
+        l.head = prev_node
+
+    def __len__(self):
+        current = self.head
+        length = 0
+        while current is not None:
+            length += 1
+            current = current.next
+        return length
+
+    def __str__(self) -> str:
+        current = self.head
+        string = ""
+        while current is not None:
+            string += f"{current.data}, "
+            current = current.next
+        return string
